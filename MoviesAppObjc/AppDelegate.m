@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MoviesViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    MoviesViewController *moviesVC = [[MoviesViewController alloc] init];
+    UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:moviesVC];
+    _window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    _window.rootViewController = navCon;
+    [_window makeKeyAndVisible];
     return YES;
 }
 
